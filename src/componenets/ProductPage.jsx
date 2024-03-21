@@ -9,11 +9,11 @@ const ProductPage = () => {
     const [product, setProduct]= useState(null);
     
     useEffect(()=>{
-        axios.get(`https://b7a1e93f-c4b3-43c3-8059-81d35edd59f3.mock.pstmn.io/products/${id}`)
-        .then((result)=>{
-            setProduct(result.data)
+        axios.get(`http://localhost:8080/products/${id}`)
+        .then(function(result){
+            setProduct(result.data.product)
         })
-        .catch((error)=>{
+        .catch(function(error){
             console.error(error)
         })
     },[id])
